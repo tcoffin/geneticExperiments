@@ -1,5 +1,4 @@
-targetArr = "hello world!".split('')
-targetLen = targetArr.length
+targetStr = "hello world!"
 maxLen = 255
 esc = String.fromCharCode(27)
 
@@ -23,8 +22,12 @@ mutate = (fitness) ->
 
 	return str
 
+targetArr = []
+targetArr[i] = ' ' for i in [0..maxLen-1]
+targetArr[i] = targetStr[i] for i in [0..targetStr.length-1]
+
 str = []
-str.length = maxLen
+str[i] = esc for i in [0..maxLen-1]
 
 while str.join('') != targetArr.join('')
 	str = fitness(str)
